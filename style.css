@@ -1,0 +1,262 @@
+%fixedbox {
+  // Basic styling
+  box-sizing: border-box;
+  display: block;
+  font-size: 4em;
+  padding: 1em;
+  width: 6em;
+  height: 3em;
+  
+  // Center box in middle of screen
+  position: fixed; 
+    top: 50%;
+    left: 50%;
+  transform: translate3d(-50%,-50%,0);
+}
+
+.content {
+    // Basic styling
+    @extend %fixedbox;
+  
+    font-weight: bold;
+    text-align: center;
+    z-index: 1000;
+  
+    // Cut-out text effect
+    background: #fff;
+    color: #000;
+    mix-blend-mode: lighten;
+}
+
+section {
+  // Background image styling
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  // Reset stacking context
+  isolation: isolate;
+  
+  // Must be set to correctly position .wrapper below
+  position: relative;
+  
+  // Height not required. Can be left as auto
+  height: 100vh;
+  padding: 1em;
+}
+
+.wrapper {
+  // Hides box (&:before) outside of section
+  clip: rect(auto auto auto auto);
+  
+  // Clip works only on positions absolute or fixed
+  position: absolute; 
+  // Stretch to fill entire section
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  
+  &:before {
+    content: " ";
+    
+    // Basic styling
+    @extend %fixedbox;
+    padding: 2em 3.5em;
+    
+    // Blend with background
+    mix-blend-mode: darken;
+
+  }
+}
+
+.one {
+  // Section background image
+  background-image: url(https://source.unsplash.com/1920x1080?nature);
+  
+  .wrapper:before {
+    // Box background color
+    background: red;
+  }
+}
+
+.two {
+  background-image: url(https://source.unsplash.com/1920x1080?landscape);
+  
+  .wrapper:before {
+    background: #faaa54;
+    mix-blend-mode: difference;
+  }
+}
+
+.three {
+  //background-color: grey;
+  //https://coder--ateefaateeque.repl.co
+  .wrapper:before {
+    background: #6c320a;
+    mix-blend-mode: screen;
+  }
+}
+
+.four {
+  background-image: url(https://source.unsplash.com/1920x1080?dew);
+  
+  .wrapper:before {
+    background: #e4135d;
+  }
+}
+
+.five {
+	  //background-color: grey;
+
+  //background-image: url(https://source.unsplash.com/1920x1080?laptop);
+  
+  .wrapper:before {
+    background: #faaa54;
+    mix-blend-mode: difference;
+  }
+}
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+html, body{
+  height: 100%;
+  font-weight: 800;
+}
+
+body{
+  background: #030321;
+  font-family: Arial;
+}
+
+svg {
+    display: block;
+    font: 10.5em 'Montserrat';
+    width: 960px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.text-copy {
+    fill: none;
+    stroke: white;
+    stroke-dasharray: 6% 29%;
+    stroke-width: 5px;
+    stroke-dashoffset: 0%;
+    animation: stroke-offset 5.5s infinite linear;
+}
+
+.text-copy:nth-child(1){
+    stroke: rgb(184, 75, 153);
+	animation-delay: -1;
+}
+
+.text-copy:nth-child(2){
+	stroke: #a71652;
+	animation-delay: -2s;
+}
+
+.text-copy:nth-child(3){
+	stroke: rgb(182, 43, 82);
+	animation-delay: -3s;
+}
+
+.text-copy:nth-child(4){
+	stroke: rgb(199, 27, 76);
+	animation-delay: -4s;
+}
+
+.text-copy:nth-child(5){
+	stroke: #FDB731;
+	animation-delay: -5s;
+}
+
+@keyframes stroke-offset{
+	100% {stroke-dashoffset: -35%;}
+}
+
+.myOne{
+	color:aliceblue;
+	margin: 20pt;
+	font-family: "Courier New", Courier, monospace;
+}
+.card{
+	padding: 30pt;
+}
+h5{
+	font-size: 10px;
+}
+.ml9 {
+  position: relative;
+  font-weight: 200;
+  font-size: 4em;
+}
+
+.ml9 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+
+.ml9 .letter {
+  transform-origin: 50% 100%;
+  display: inline-block;
+  line-height: 1em;
+}
+.ml13 {
+  font-size: 1.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  font-weight: 600;
+}
+
+.ml13 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+			.icon-bar {
+				position: fixed;
+				z-index:600;
+				top: 50%;
+				-webkit-transform: translateY(-50%);
+				-ms-transform: translateY(-50%);
+				transform: translateY(-50%);
+			}
+
+			.icon-bar a {
+				display: block;
+				text-align: center;
+				padding: 10px;
+				transition: all 0.3s ease;
+				color: white;
+				font-size: 15px;
+			}
+
+			.icon-bar a:hover {
+				background-color: #000;
+			}
+
+			.twitter {
+				background: #55ACEE;
+				color: white;
+			}
+
+			.linkedin {
+				background: #007bb5;
+				color: white;
+			}
+			.poem {
+				background: #b14580;
+				color: white;
+				font-size: 5pt;
+			}
+			.lang {
+				background: #3baf6f;
+				color: white;
+				font-size: 5pt;
+			}
+
+		
